@@ -1,0 +1,23 @@
+body {
+    background-color: white;
+}
+
+#board {
+        background-color: red;
+        margin: 0px auto;
+        position: relative;
+}
+
+.freeSpace {
+    background-color: black;
+    height: 50px;
+    width: 50px;
+    position: absolute;
+}
+
+.bomb {
+    background-color: black;
+    height: 50px;
+    width: 50px;
+    position: absolute;
+}

@@ -1,4 +1,6 @@
 // 2D array that will create the playing board
+const rows = 10;
+const cols = 10;
 const grid = [
     [0,0,1,0,0,0,0,0,0,0],
     [0,0,0,0,0,1,0,0,0,0],
@@ -12,6 +14,28 @@ const grid = [
     [0,0,0,0,0,1,0,0,0,0]
 ];
 
+
+function createBoard() {
+    let board = document.getElementById('board');
+     for (let row = 0; row < rows; row++) {
+        for(let col = 0; col < cols; col++) {
+            if (grid[row][col]==1) {
+                let bomb = document.createElement('div');
+                bomb.className = 'bomb';
+                bomb.style.top = row*50 + 'px';
+                bomb.style.left = col*50 + 'px';
+                board.appendChild(bomb);
+                
+            } else {
+                let freeSpace = document.createElement('div');
+                freeSpace.className = 'freeSpace';
+                freeSpace.style.top = row*50 + 'px';
+                freeSpace.style.left = col*50 + 'px';
+                board.appendChild(freeSpace);
+            }
+        }
+     }
+}
 let display;
 
 init() 
@@ -22,6 +46,8 @@ function init() {
         score: 0
     }
 }
+
+createBoard();
 // Use randomization so they move each time it is reset
 
 // Click a square in the grid
