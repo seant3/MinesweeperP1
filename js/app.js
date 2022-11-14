@@ -52,6 +52,9 @@ function playRound(e){
 }
 
 // let display;
+const replayBtn = document.querySelector('#reset');
+
+replayBtn.addEventListener('click', init);
 
 init() 
 // Set initial state of game

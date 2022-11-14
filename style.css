@@ -7,6 +7,16 @@ body {
         position: relative;
 }
 
+#reset {
+    background-color: grey;
+    color: red;
+    height: 50px;
+    width: 120px;
+    position: absolute;
+    justify-content: center;
+    margin: 0 60vmin;
+}
+
 .freeSpace, .bomb {
     background-color: white;
     height: 50px;
@@ -25,7 +35,7 @@ body {
 } */
 
 .clicked {
-    background-color: blue;
+    background-color: rgb(192, 192, 195);
     height: 50px;
     width: 50px;
     position: absolute;
