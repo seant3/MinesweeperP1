@@ -1,4 +1,4 @@
-// 2D array that will create the playing board
+// 2D array that will create the playing board with fixed values at this point
 const rows = 10;
 const cols = 10;
 const grid = [
@@ -15,7 +15,7 @@ const grid = [
 ];
 
 
-function createBoard() {
+function createBoard() { // creates 50px block buttons in relation to the values of 'rows' and 'cols'
     let board = document.getElementById('board');
      for (let row = 0; row < rows; row++) {
         for(let col = 0; col < cols; col++) {
@@ -25,7 +25,7 @@ function createBoard() {
                 bomb.style.top = row*50 + 'px';
                 bomb.style.left = col*50 + 'px';
                 board.appendChild(bomb);
-                bomb.addEventListener('click', playRound);
+                bomb.addEventListener('click', playRound); // Click a square in the grid
                 // console.log(bomb);
             } else {
                 let freeSpace = document.createElement('button');
@@ -33,7 +33,7 @@ function createBoard() {
                 freeSpace.style.top = row*50 + 'px';
                 freeSpace.style.left = col*50 + 'px';
                 board.appendChild(freeSpace);
-                freeSpace.addEventListener('click', playRound);
+                freeSpace.addEventListener('click', playRound); // Click a square in the grid
                 // console.log(freeSpace);
             }
         }
@@ -43,25 +43,31 @@ function createBoard() {
 
 function playRound(e){
     const btnClickedEl = e.target;
-    console.log(btnClickedEl)
-    if(btnClickedEl.className === 'bomb') alert ('BOMB');
+    if(btnClickedEl.className === 'bomb'){
+        alert('Game over - you went boom');
+    } else {
+        btnClickedEl.className='clicked';
+    }
+    render()
 }
 
 // let display;
 
-// init() 
-// // Set initial state of game
-// function init() {
-//     display = {
-//         mines: 10,
-//         score: 0
-//     }
-// }
+init() 
+// Set initial state of game
+function init() {
+    createBoard();
+    // display = {
+    //     mines: 10,
+    //     score: 0
+    // }
+    render()
+}
 
-createBoard();
+function render(){
+
+}
 // Use randomization so they move each time it is reset
-
-// Click a square in the grid
 
 
 // Check outcomes of the clicked square - blown up or keep going
