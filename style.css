@@ -8,15 +8,20 @@ body {
         position: relative;
 }
 
-.freeSpace {
-    background-color: black;
+.freeSpace, .bomb {
+    background-color: white;
     height: 50px;
     width: 50px;
     position: absolute;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: black;
+    margin: auto;
+    margin
 }
 
 .bomb {
-    background-color: black;
+    background-color: red;
     height: 50px;
     width: 50px;
     position: absolute;
