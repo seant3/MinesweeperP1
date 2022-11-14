@@ -20,37 +20,48 @@ function createBoard() {
      for (let row = 0; row < rows; row++) {
         for(let col = 0; col < cols; col++) {
             if (grid[row][col]==1) {
-                let bomb = document.createElement('div');
+                let bomb = document.createElement('button');
                 bomb.className = 'bomb';
                 bomb.style.top = row*50 + 'px';
                 bomb.style.left = col*50 + 'px';
                 board.appendChild(bomb);
-                
+                bomb.addEventListener('click', playRound);
+                // console.log(bomb);
             } else {
-                let freeSpace = document.createElement('div');
+                let freeSpace = document.createElement('button');
                 freeSpace.className = 'freeSpace';
                 freeSpace.style.top = row*50 + 'px';
                 freeSpace.style.left = col*50 + 'px';
                 board.appendChild(freeSpace);
+                freeSpace.addEventListener('click', playRound);
+                // console.log(freeSpace);
             }
         }
      }
-}
-let display;
 
-init() 
-// Set initial state of game
-function init() {
-    display = {
-        mines: 10,
-        score: 0
-    }
 }
+
+function playRound(e){
+    const btnClickedEl = e.target;
+    console.log(btnClickedEl)
+}
+
+// let display;
+
+// init() 
+// // Set initial state of game
+// function init() {
+//     display = {
+//         mines: 10,
+//         score: 0
+//     }
+// }
 
 createBoard();
 // Use randomization so they move each time it is reset
 
 // Click a square in the grid
+
 
 // Check outcomes of the clicked square - blown up or keep going
 // If you hit a mine, show all the mine locations in a different color
