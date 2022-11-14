@@ -44,6 +44,7 @@ function createBoard() {
 function playRound(e){
     const btnClickedEl = e.target;
     console.log(btnClickedEl)
+    if(btnClickedEl.className === 'bomb') alert ('BOMB');
 }
 
 // let display;
