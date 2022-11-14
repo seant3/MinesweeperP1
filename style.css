@@ -17,12 +17,12 @@ body {
     border-color: black;
 }
 
-.bomb {
+/* .bomb {
     background-color: red;
     height: 50px;
     width: 50px;
     position: absolute;
-}
+} */
 
 .clicked {
     background-color: blue;
