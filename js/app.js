@@ -45,12 +45,12 @@ function playRound(e){
 
         showAll.forEach(function(el) {
             el.classList.add('blowup');
+            el.innerHTML = 'Bye Bye';
            });
         
-        alert('Game over - you went boom');
-            
     } else {
         btnClickedEl.className='clicked';
+        btnClickedEl.innerHTML = `I'm Alive`;
     }
     render()
 }
