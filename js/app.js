@@ -3,9 +3,9 @@ const rows = 4;
 const cols = 5;
 const grid = [
     [0,0,1,0,0],
-    [1,0,0,0,1],
-    [0,0,1,0,0],
-    [0,0,0,0,1],
+    [0,0,0,0,0],
+    [0,1,0,0,0],
+    [0,0,1,0,1],
 ];
 
 let display;
@@ -41,9 +41,14 @@ function createBoard() { // creates 50px block buttons in relation to the values
 function playRound(e){
     const btnClickedEl = e.target;
     if(btnClickedEl.className === 'bomb'){
-        btnClickedEl.className='blowup';
-        // need to blow up everything and display?
+        let showAll = document.querySelectorAll('.bomb');
+
+        showAll.forEach(function(el) {
+            el.classList.add('blowup');
+           });
+        
         alert('Game over - you went boom');
+            
     } else {
         btnClickedEl.className='clicked';
     }
@@ -58,7 +63,7 @@ init()
 function init() {
     createBoard();
     display = {
-        mines: 5,
+        mines: 4,
         score: 0
     }
     
