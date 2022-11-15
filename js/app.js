@@ -8,6 +8,7 @@ const grid = [
     [0,0,0,0,1],
 ];
 
+let display;
 let bomb;
 let freeSpace;
 let board = document.getElementById('board');
@@ -22,7 +23,7 @@ function createBoard() { // creates 50px block buttons in relation to the values
                 bomb.style.left = col*50 + 'px';
                 board.appendChild(bomb);
                 bomb.addEventListener('click', playRound); // Click a square in the grid
-                // console.log(bomb);
+                // can we count the amount of bombs here to display?
             } else {
                 freeSpace = document.createElement('button');
                 freeSpace.className = 'freeSpace';
@@ -30,7 +31,7 @@ function createBoard() { // creates 50px block buttons in relation to the values
                 freeSpace.style.left = col*50 + 'px';
                 board.appendChild(freeSpace);
                 freeSpace.addEventListener('click', playRound); // Click a square in the grid
-                // console.log(freeSpace);
+                // count the amount of freeSpace so we know when we win?
             // }
             }
         }
@@ -41,14 +42,13 @@ function playRound(e){
     const btnClickedEl = e.target;
     if(btnClickedEl.className === 'bomb'){
         btnClickedEl.className='blowup';
+        // need to blow up everything and display?
         alert('Game over - you went boom');
     } else {
         btnClickedEl.className='clicked';
     }
     render()
 }
-
-let display;
 // Reset button to refresh the page and play again
 const resetBtn = document.querySelector('#reset');
 resetBtn.addEventListener('click', init);
@@ -58,7 +58,7 @@ init()
 function init() {
     createBoard();
     display = {
-        mines: 10,
+        mines: 5,
         score: 0
     }
     
