@@ -1,26 +1,22 @@
 // 2D array that will create the playing board with fixed values at this point
-const rows = 10;
-const cols = 10;
+const rows = 4;
+const cols = 5;
 const grid = [
-    [0,0,1,0,0,0,0,0,0,0],
-    [0,0,0,0,0,1,0,0,0,0],
-    [0,0,1,0,0,0,0,0,0,0],
-    [0,0,0,0,0,1,0,0,0,0],
-    [0,0,1,0,0,0,0,0,0,0],
-    [0,0,0,0,0,1,0,0,0,0],
-    [0,0,1,0,0,0,0,0,0,0],
-    [0,0,0,0,0,1,0,0,0,0],
-    [0,0,1,0,0,0,0,0,0,0],
-    [0,0,0,0,0,1,0,0,0,0]
+    [0,0,1,0,0],
+    [1,0,0,0,1],
+    [0,0,1,0,0],
+    [0,0,0,0,1],
 ];
 
+let bomb;
+let freeSpace;
+let board = document.getElementById('board');
 
 function createBoard() { // creates 50px block buttons in relation to the values of 'rows' and 'cols'
-    let board = document.getElementById('board');
      for (let row = 0; row < rows; row++) {
         for(let col = 0; col < cols; col++) {
-            if (grid[row][col]==1) {
-                let bomb = document.createElement('button');
+            if (grid[row][col]===1) {
+                bomb = document.createElement('button');
                 bomb.className = 'bomb';
                 bomb.style.top = row*50 + 'px';
                 bomb.style.left = col*50 + 'px';
@@ -28,22 +24,23 @@ function createBoard() { // creates 50px block buttons in relation to the values
                 bomb.addEventListener('click', playRound); // Click a square in the grid
                 // console.log(bomb);
             } else {
-                let freeSpace = document.createElement('button');
+                freeSpace = document.createElement('button');
                 freeSpace.className = 'freeSpace';
                 freeSpace.style.top = row*50 + 'px';
                 freeSpace.style.left = col*50 + 'px';
                 board.appendChild(freeSpace);
                 freeSpace.addEventListener('click', playRound); // Click a square in the grid
                 // console.log(freeSpace);
+            // }
             }
         }
-     }
-
+    }
 }
 
 function playRound(e){
     const btnClickedEl = e.target;
     if(btnClickedEl.className === 'bomb'){
+        btnClickedEl.className='blowup';
         alert('Game over - you went boom');
     } else {
         btnClickedEl.className='clicked';
@@ -51,19 +48,20 @@ function playRound(e){
     render()
 }
 
-// let display;
-const replayBtn = document.querySelector('#reset');
-
-replayBtn.addEventListener('click', init);
+let display;
+// Reset button to refresh the page and play again
+const resetBtn = document.querySelector('#reset');
+resetBtn.addEventListener('click', init);
 
 init() 
 // Set initial state of game
 function init() {
     createBoard();
-    // display = {
-    //     mines: 10,
-    //     score: 0
-    // }
+    display = {
+        mines: 10,
+        score: 0
+    }
+    
     render()
 }
 
@@ -72,12 +70,7 @@ function render(){
 }
 // Use randomization so they move each time it is reset
 
-
-// Check outcomes of the clicked square - blown up or keep going
 // If you hit a mine, show all the mine locations in a different color
-
-
-// Reset button to refresh the page and play again
 
 // Display outcome - either a score or a message saying they were blown up
 

@@ -3,8 +3,8 @@ body {
 }
 
 #board {
-        margin: 0px auto;
-        position: relative;
+    margin: 0px auto;
+    position: relative;
 }
 
 #reset {
@@ -27,16 +27,22 @@ body {
     border-color: black;
 }
 
-/* .bomb {
-    background-color: red;
-    height: 50px;
-    width: 50px;
-    position: absolute;
-} */
-
 .clicked {
     background-color: rgb(192, 192, 195);
     height: 50px;
     width: 50px;
     position: absolute;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: black;
+}
+
+.blowup {
+    background-color: rgb(239, 15, 15);
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: black;
 }
