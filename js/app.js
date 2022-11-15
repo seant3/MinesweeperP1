@@ -8,24 +8,25 @@ const grid = [
     [0,0,1,0,1],
 ];
 
-let display;
-let bomb;
-let freeSpace;
+let playerScore = 0;
+let bombCount = 0;
+let freeSpaceCount = 0;
 let board = document.getElementById('board');
 
 function createBoard() { // creates 50px block buttons in relation to the values of 'rows' and 'cols'
-     for (let row = 0; row < rows; row++) {
+    for (let row = 0; row < rows; row++) {
         for(let col = 0; col < cols; col++) {
             if (grid[row][col]===1) {
-                bomb = document.createElement('button');
+                let bomb = document.createElement('button');
                 bomb.className = 'bomb';
                 bomb.style.top = row*50 + 'px';
                 bomb.style.left = col*50 + 'px';
                 board.appendChild(bomb);
-                bomb.addEventListener('click', playRound); // Click a square in the grid
+                bomb.addEventListener('click', playRound);
+                console.log(grid.cellIndex) // Click a square in the grid
                 // can we count the amount of bombs here to display?
             } else {
-                freeSpace = document.createElement('button');
+                let freeSpace = document.createElement('button');
                 freeSpace.className = 'freeSpace';
                 freeSpace.style.top = row*50 + 'px';
                 freeSpace.style.left = col*50 + 'px';
@@ -44,16 +45,18 @@ function playRound(e){
         let showAll = document.querySelectorAll('.bomb');
 
         showAll.forEach(function(el) {
-            el.classList.add('blowup');
+            el.classList.add('blowup'); // If you hit a mine, show all the mine locations in a different color
             el.innerHTML = 'Bye Bye';
            });
-        
+        alert ('Game over, try again!');
     } else {
-        btnClickedEl.className='clicked';
+        btnClickedEl.className = 'clicked';
         btnClickedEl.innerHTML = `I'm Alive`;
+        console.dir(btnClickedEl)
     }
     render()
 }
+
 // Reset button to refresh the page and play again
 const resetBtn = document.querySelector('#reset');
 resetBtn.addEventListener('click', init);
@@ -62,11 +65,6 @@ init()
 // Set initial state of game
 function init() {
     createBoard();
-    display = {
-        mines: 4,
-        score: 0
-    }
-    
     render()
 }
 
@@ -74,8 +72,6 @@ function render(){
 
 }
 // Use randomization so they move each time it is reset
-
-// If you hit a mine, show all the mine locations in a different color
 
 // Display outcome - either a score or a message saying they were blown up
 
