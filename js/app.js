@@ -34,7 +34,8 @@ function createBoard() { // creates 50px block buttons in relation to the values
                 freeSpace.style.top = i*50 + 'px';
                 freeSpace.style.left = j*50 + 'px';
                 board.appendChild(freeSpace);
-                freeSpace.addEventListener('click', playRound); // Click a square in the grid
+                freeSpace.addEventListener('click', playRound);
+                 // Click a square in the grid
                 display.spacesRemaining += 1;
                 // count the amount of freeSpace so we know when we win?
             // }
@@ -47,15 +48,19 @@ function playRound(e){
     const btnClickedEl = e.target;
     if(btnClickedEl.className === 'bomb'){
         let showAll = document.querySelectorAll('.bomb');
-
         showAll.forEach(function(el) {
             el.classList.add('blowup'); // If you hit a mine, show all the mine locations in a different color
             el.innerHTML = 'Bye Bye';
+            if (btnClickedEl.className = 'blowup') el.removeEventListener('click', playRound)
            });
+
         alert ('Game over, try again!');
+    
     } else {
         btnClickedEl.className = 'clicked';
         btnClickedEl.innerHTML = 1;
+        if (btnClickedEl.className = 'clicked') btnClickedEl.removeEventListener('click', playRound)
+
         // let countMines = 0;
         // let rowIndex = grid[rows]
         // let colIndex = grid[cols]
@@ -66,9 +71,11 @@ function playRound(e){
         // }
         // console.dir(btnClickedEl)
     }
+
     display.score += 1
     display.spacesRemaining -= 1
     render()
+    
 }
 
 const displayEls = {
