@@ -7,19 +7,19 @@ const grid = [
     [0,0,0,1,0],
     [0,1,0,0,0],
 ];
-
+let freeSpace;
+let bomb;
 let display;
 let outcome;
 // let bombCount = 0;
 // let freeSpaceCount = 0;
 let board = document.getElementById('board');
 
-
 function createBoard() { // creates 50px block buttons in relation to the values of 'rows' and 'cols'
     for (let i = 0; i < rows; i++) {
         for(let j = 0; j < cols; j++) {
             if (grid[i][j]===1) {
-                let bomb = document.createElement('button');
+                bomb = document.createElement('button');
                 bomb.className = 'bomb';
                 bomb.style.top = i*50 + 'px';
                 bomb.style.left = j*50 + 'px';
@@ -29,7 +29,7 @@ function createBoard() { // creates 50px block buttons in relation to the values
 
                 // can we count the amount of bombs here to display?
             } else {
-                let freeSpace = document.createElement('button');
+                freeSpace = document.createElement('button');
                 freeSpace.className = 'freeSpace';
                 freeSpace.style.top = i*50 + 'px';
                 freeSpace.style.left = j*50 + 'px';
@@ -44,17 +44,23 @@ function createBoard() { // creates 50px block buttons in relation to the values
     }
 }
 
+
 function playRound(e){
     const btnClickedEl = e.target;
     if(btnClickedEl.className === 'bomb'){
         let showAll = document.querySelectorAll('.bomb');
+        let endGame = document.querySelectorAll('.freeSpace')
+        endGame.forEach(function(els) {
+            els.removeEventListener('click', playRound)
+        })
         showAll.forEach(function(el) {
             el.classList.add('blowup'); // If you hit a mine, show all the mine locations in a different color
             el.innerHTML = 'Bye Bye';
-            if (btnClickedEl.className = 'blowup') el.removeEventListener('click', playRound)
+            el.removeEventListener('click', playRound)
            });
-
+        
         alert ('Game over, try again!');
+
     
     } else {
         btnClickedEl.className = 'clicked';
