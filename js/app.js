@@ -25,6 +25,8 @@ function createBoard() { // creates 50px block buttons in relation to the values
                 bomb.style.left = j*50 + 'px';
                 board.appendChild(bomb);
                 bomb.addEventListener('click', playRound); // Click a square in the grid
+                display.minesRemaining += 1;
+
                 // can we count the amount of bombs here to display?
             } else {
                 let freeSpace = document.createElement('button');
@@ -33,6 +35,7 @@ function createBoard() { // creates 50px block buttons in relation to the values
                 freeSpace.style.left = j*50 + 'px';
                 board.appendChild(freeSpace);
                 freeSpace.addEventListener('click', playRound); // Click a square in the grid
+                display.spacesRemaining += 1;
                 // count the amount of freeSpace so we know when we win?
             // }
             }
@@ -64,14 +67,14 @@ function playRound(e){
         // console.dir(btnClickedEl)
     }
     display.score += 1
-
+    display.spacesRemaining -= 1
     render()
 }
 
 const displayEls = {
     score: document.querySelector('#p-score'),
-    mines_remaining: document.querySelector('#mines_num'),
-    spaces_remaining: document.querySelector('#spaces_num')
+    minesRemaining: document.querySelector('#mines_num'),
+    spacesRemaining: document.querySelector('#spaces_num')
 }
 
 // Reset button to refresh the page and play again
@@ -81,13 +84,13 @@ resetBtn.addEventListener('click', init);
 init() 
 // Set initial state of game
 function init() {
-    createBoard();
-
     display = {
         score: 0,
-        mines_remaining: 0,
-        spaces_remaining: 0
+        minesRemaining: 0,
+        spacesRemaining: 0
     };
+
+    createBoard();
 
     outcome = null;
     render()
@@ -95,8 +98,8 @@ function init() {
 
 function render(){
     displayEls.score.innerText = display.score;
-    displayEls.mines_remaining.innerText = display.mines_remaining;
-    displayEls.spaces_remaining.innerText = display.spaces_remaining;
+    displayEls.minesRemaining.innerText = display.minesRemaining;
+    displayEls.spacesRemaining.innerText = display.spacesRemaining;
 }
 // Use randomization so they move each time it is reset
 
