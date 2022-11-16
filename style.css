@@ -1,6 +1,8 @@
 body {
     background: rgb(186, 186, 251);
-    text-align: center;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
 }
 
 header {
@@ -20,7 +22,7 @@ header {
     width: 120px;
     position: absolute;
     justify-content: center;
-    margin: 25vmin -6.7vmin;
+    margin: 35vmin 30vmin;
 }
 
 .freeSpace, .bomb {
@@ -54,11 +56,17 @@ header {
     
 }
 
-.scoreboard {
+#score {
     height: 100px;
     width: 50px;
     position: absolute;
-    border-radius: 10px;
-    border-style: solid;
-    border-color: black;
+    color: red;
+}
+
+#mines_num {
+    color: black;
+}
+
+#spaces_num {
+    color: black;
 }
