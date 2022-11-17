@@ -50,6 +50,8 @@ function playRound(e){
         })
         
         showAll.forEach(function(el) {
+            el.innerHTML="<img src='img/bomb.png' />";
+
             el.classList.add('blowup'); // If you hit a mine, show all the mine locations in a different color
             el.removeEventListener('click', playRound)
            });
