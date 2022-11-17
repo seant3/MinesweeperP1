@@ -30,13 +30,13 @@ header {
 
 
  body {
-    display: grid;
-   /* grid-template-columns: 10% [col-start] 20% [col-start] 60% [col-start]; */
-   grid-template-rows: auto 1fr;
+    display: inline-grid;
+    grid-template-columns: 1fr 4fr;
     height: 100vh;
     margin: 0;
     grid-gap: 5px;
     font-family: Helvetica;
+    background: rgb(186, 186, 251);
   }
 
   .flex-ctr {
@@ -46,38 +46,56 @@ header {
   }
 
   header {
-    background-color: aquamarine;
-    grid-column: span 3;
+    font-size: x-large;
+    margin: 100px 0 0 0;
+    grid-column: span 4;
+    /* transform: translate(-25px) */
   }
 
   aside1, aside2 {
     display: flex;
     flex-direction: column;
-    background-color: #a2b4da;
     height: 40%;
+    width: 200px;
+    justify-content: center;
   }
-  main {
-    background-color: #f3dba8;
+
+  aside1 {
+    width: 100px;
+    margin-left: 30px;
+  }
+
+  aside2 {
+    /* transform: translate(-50px); */
+    min-width: 100px;
+  }
+
+  table {
     table-layout: fixed;
-    width: 40%;
-    height: 40%;
+    width: 300px;
+    height: 300px;
     justify-content: start;
-  }
-  
-  button {
-    background-color: #a2cbb6;
+    /* max-width: 1000px; */
+    min-width: 100px;
+    /* transform: translate(-150px); */
   }
 
   #reset {
-    font-size: 2vmin;
-    font-weight: bold;
-    padding: 2vmin;
-    margin-top: 4vmin;
-    border: .3vmin solid grey;
+    border: .5vmin solid grey;
     color: grey;
-    border-radius: 2vmin;
-    outline: none;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: black;
     cursor: pointer;
+    background-color: #a2cbb6;
+    /* float: left; */
+    height: 50px;
+    grid-column-end: none;
+    grid-column-start: 4;
+    /* grid-row-end: none; */
+    align-content: center;
+    transform: translate(-20px, 50px)
+    
   }
   
   #reset:hover {
@@ -105,10 +123,4 @@ header {
 
 .blowup {
     background-color: rgb(239, 15, 15);
-    height: 50px;
-    width: 50px;
-    border-radius: 10px;
-    border-style: solid;
-    border-color: black;
-    
 }
