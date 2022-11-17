@@ -12,6 +12,7 @@ let bomb;
 let display;
 let outcome = '';
 let board = document.getElementById('board');
+console.log(Test)
 
 function createBoard() { // creates 50px block buttons in relation to the values of 'rows' and 'cols'
     for (let i = 0; i < rows; i++) {
