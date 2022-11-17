@@ -53,9 +53,15 @@ header {
   aside1, aside2 {
     background-color: #a2b4da;
   }
+  aside1 {
+    width: 20%;
+  }
   
   main {
     background-color: #f3dba8;
+    table-layout: fixed;
+    width: 40%;
+    height: 40%;
   }
   
   button {
