@@ -38,6 +38,7 @@ function createBoard() { // creates 50px block buttons in relation to the values
     }
 }
 
+
 function playRound(e){
     const btnClickedEl = e.target;
     if(btnClickedEl.className === 'bomb'){
@@ -80,6 +81,7 @@ resetBtn.addEventListener('click', init);
 init() 
 // Set initial state of game
 function init() {
+    
     display = {
         score: 0,
         minesRemaining: 0,

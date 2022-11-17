@@ -31,8 +31,8 @@ header {
 
  body {
     display: grid;
-   grid-template-columns: 1fr 4fr;
-   grid-template-rows: 50px 1fr 30px;
+   /* grid-template-columns: 10% [col-start] 20% [col-start] 60% [col-start]; */
+   grid-template-rows: auto 1fr;
     height: 100vh;
     margin: 0;
     grid-gap: 5px;
@@ -51,21 +51,38 @@ header {
   }
 
   aside1, aside2 {
+    display: flex;
+    flex-direction: column;
     background-color: #a2b4da;
+    height: 40%;
   }
-  aside1 {
-    width: 20%;
-  }
-  
   main {
     background-color: #f3dba8;
     table-layout: fixed;
     width: 40%;
     height: 40%;
+    justify-content: start;
   }
   
   button {
     background-color: #a2cbb6;
+  }
+
+  #reset {
+    font-size: 2vmin;
+    font-weight: bold;
+    padding: 2vmin;
+    margin-top: 4vmin;
+    border: .3vmin solid grey;
+    color: grey;
+    border-radius: 2vmin;
+    outline: none;
+    cursor: pointer;
+  }
+  
+  #reset:hover {
+    background-color: grey;
+    color: white;
   }
 
   .freeSpace, .bomb {
