@@ -6,21 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <script defer src="./js/app.js"></script>
-    <title>Document</title>
+    <title>Minesweeper: Project 1</title>
 </head>
 <body>
-    <header>MINESWEEPER</header>
-    <main>
-        <table id="board"></table>
-        <h2>Score</h2>
-        <h2>Total Mines</h2>
-        <h2>Spaces Remaining</h2>
-        <h2>Outcome</h2>
-        <h1 id="p-score"></h1>
-        <h1 id="mines-num"></h1>
-        <h1 id="spaces-num"></h1>
-        <h1 id="p-outcome"></h1>
-        <button id="reset">Reset Game</button>
-    </main>
+    <header class ='flex-ctr'>MINESWEEPER</header>
+    <aside1 class = 'flex-ctr'>
+        <div1>Score</div1>
+        <div1>Total Mines</div1>
+        <div1>Spaces Remaining</div1>
+        <div1>Outcome</div1>
+    </aside1>
+    <aside2 class = 'flex-ctr'>
+        <div2 id="p-score"></div2>
+        <div2 id="mines-num"></div2>
+        <div2 id="spaces-num"></div2>
+        <div2 id="p-outcome"></div2>
+        </aside2>
+    
+    <main id="board"></main>
+    <button class = 'flex-ctr', id="reset">Reset Game</button>
 </body>
 </html>

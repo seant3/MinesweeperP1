@@ -1,4 +1,4 @@
-body {
+/* body {
     background: rgb(186, 186, 251);
     height: 100vh;
     justify-content: center;
@@ -26,13 +26,46 @@ header {
     position: absolute;
     justify-content: center;
     margin: -20vmin 65vmin;
-}
+} */
 
-.freeSpace, .bomb {
+
+ body {
+    display: grid;
+   grid-template-columns: 1fr 4fr;
+   grid-template-rows: 50px 1fr 30px;
+    height: 100vh;
+    margin: 0;
+    grid-gap: 5px;
+    font-family: Helvetica;
+  }
+
+  .flex-ctr {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  header {
+    background-color: aquamarine;
+    grid-column: span 3;
+  }
+
+  aside1, aside2 {
+    background-color: #a2b4da;
+  }
+  
+  main {
+    background-color: #f3dba8;
+  }
+  
+  button {
+    background-color: #a2cbb6;
+  }
+
+  .freeSpace, .bomb {
     background-color: rgb(255, 255, 255);
     height: 50px;
     width: 50px;
-    position: absolute;
     border-radius: 10px;
     border-style: solid;
     border-color: black;
@@ -42,7 +75,6 @@ header {
     background-color: rgb(156, 156, 159);
     height: 50px;
     width: 50px;
-    position: absolute;
     border-radius: 10px;
     border-style: solid;
     border-color: black;
@@ -52,13 +84,8 @@ header {
     background-color: rgb(239, 15, 15);
     height: 50px;
     width: 50px;
-    position: absolute;
     border-radius: 10px;
     border-style: solid;
     border-color: black;
-    
-}
-
-h1 {
     
 }
