@@ -3,16 +3,19 @@ body {
     height: 100vh;
     justify-content: center;
     align-items: center;
+    color: black;
+    position: absolute;
 }
 
 header {
     text-align: center;
     font-size: 20pt;
+    margin: 0 60vmin;
 }
 
 #board {
-    margin: 0px 48vmin;
-    position: relative;
+    margin: 30px 55vmin;
+    position: absolute;
 }
 
 #reset {
@@ -22,11 +25,11 @@ header {
     width: 120px;
     position: absolute;
     justify-content: center;
-    margin: 35vmin 30vmin;
+    margin: -20vmin 65vmin;
 }
 
 .freeSpace, .bomb {
-    background-color: white;
+    background-color: rgb(255, 255, 255);
     height: 50px;
     width: 50px;
     position: absolute;
@@ -36,7 +39,7 @@ header {
 }
 
 .clicked {
-    background-color: rgb(192, 192, 195);
+    background-color: rgb(156, 156, 159);
     height: 50px;
     width: 50px;
     position: absolute;
@@ -56,17 +59,6 @@ header {
     
 }
 
-#score {
-    height: 100px;
-    width: 50px;
-    position: absolute;
-    color: red;
-}
-
-#mines_num {
-    color: black;
-}
-
-#spaces_num {
-    color: black;
+h1 {
+    
 }
