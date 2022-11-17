@@ -56,6 +56,9 @@ header {
   
   main {
     background-color: #f3dba8;
+    table-layout: fixed;
+    width: 40%;
+    height: 40%;
   }
   
   button {
