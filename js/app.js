@@ -15,6 +15,7 @@ let board = document.getElementById('board');
 console.log('Test');
 
 function createBoard() { // creates 50px block buttons in relation to the values of 'rows' and 'cols'
+    board.innerHTML = '';
     for (let i = 0; i < rows; i++) {
         for(let j = 0; j < cols; j++) {
             if (grid[i][j]===1) {
@@ -44,13 +45,14 @@ function playRound(e){
         let showAll = document.querySelectorAll('.bomb');
         let endGame = document.querySelectorAll('.freeSpace')
         
-        endGame.forEach(function(els) {
-            els.removeEventListener('click', playRound)
+        endGame.forEach(function(el) {
+            el.removeEventListener('click', playRound)
         })
         
         showAll.forEach(function(el) {
+            el.innerHTML="<img src='img/bomb.png' />";
+
             el.classList.add('blowup'); // If you hit a mine, show all the mine locations in a different color
-            el.innerHTML = 'Bye Bye';
             el.removeEventListener('click', playRound)
            });
         
@@ -60,7 +62,7 @@ function playRound(e){
         btnClickedEl.className = 'clicked';
         if (btnClickedEl.className = 'clicked') btnClickedEl.removeEventListener('click', playRound)
     }
-    
+
     display.score += 1
     display.spacesRemaining -= 1
     render()
@@ -80,6 +82,7 @@ resetBtn.addEventListener('click', init);
 init() 
 // Set initial state of game
 function init() {
+    
     display = {
         score: 0,
         minesRemaining: 0,
