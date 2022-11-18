@@ -25,7 +25,6 @@
     display: flex;
     flex-direction: column;
     height: 40%;
-    width: 200px;
     justify-content: center;
   }
 
@@ -36,6 +35,7 @@
 
   aside2 {
     min-width: 100px;
+    overflow-wrap:normal;
   }
 
   table {
