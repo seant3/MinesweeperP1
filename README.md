@@ -2,6 +2,8 @@ Minesweeper!
 
 Description: Minesweeper is typically a logic based game, but this iteration is just guessing and hoping you come out alive. There are no hints to guide your path, other than the tallies on the left side of the screen (indicating how many total mines and how many remaining "free spaces" until you win). Imagine this as actually trying to walk across a mine field, and all you have are those two tidbits of information!
 
+Planning: [Wireframe and planning materials](https://docs.google.com/document/d/1YJGh94FQCQjKNOkD9rOOdnh_Uo7OklKUqyTLRDskJkQ/edit)
+
 ![Getting Started](img/Main%20Screen.png)
 ![Getting Started](img/Blown%20Up.png)
 
