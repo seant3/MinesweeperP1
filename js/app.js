@@ -1,4 +1,4 @@
-// 2D array that will create the playing board with fixed values at this point
+// 2D array that will create the playing board with fixed values
 const rows = 4;
 const cols = 5;
 const grid = [
@@ -6,13 +6,13 @@ const grid = [
     [1,0,0,0,0],
     [0,0,0,1,0],
     [0,1,0,0,0],
-];
+]
+
 let freeSpace;
 let bomb;
 let display;
 let outcome = '';
 let board = document.getElementById('board');
-console.log("Comment")
 
 function createBoard() { // creates 50px block buttons in relation to the values of 'rows' and 'cols'
     board.innerHTML = '';
@@ -51,8 +51,7 @@ function playRound(e){
         
         showAll.forEach(function(el) {
             el.innerHTML="<img src='img/bomb.png' />";
-
-            el.classList.add('blowup'); // If you hit a mine, show all the mine locations in a different color
+            el.classList.add('blowup'); // If you hit a mine, show all the mine locations in a different color/image
             el.removeEventListener('click', playRound)
            });
         
@@ -100,23 +99,10 @@ function render(){
     displayEls.spacesRemaining.innerText = display.spacesRemaining;
 
     if(display.spacesRemaining === 0) {
-        displayEls.outcome.innerText = "You Win!";
-    }  else {
-      displayEls.outcome.innerText = "Watch out for that mine!";
+        displayEls.outcome.innerText = 'You Win!';
+    }  else if (display.score === 0) {
+        displayEls.outcome.innerText = 'If you hit a mine, you go boom!';
+    } else {
+      displayEls.outcome.innerText = 'Watch out for that mine!';
     } 
 }
-
-// Use randomization so they move each time it is reset
-
-// Display outcome - either a score or a message saying they were blown up
-
-
-/// Possible functionality:
-
-// Show numbers of how many mines are touching the clicked square
-// Pictures for the mines
-// Header picture that changes when you hit a mine
-// Displaying multiple non bomb squares at once when you 
-    // click if there is not a bomb in the grid
-// Timer
-// Leaderboard that stays for the current session
